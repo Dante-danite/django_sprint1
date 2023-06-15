@@ -1,4 +1,5 @@
 <!DOCTYPE html> 
+{% load static %} 
 <html lang="ru"> 
   <head>    
     <meta charset="utf-8">
@@ -40,7 +41,28 @@
     </header>
     <main>
       <div class="container py-5">
-        <h1>Публикации в категории - personal</h1>   
+        <h1>Публикации в категории - personal</h1>
+        {% for post in filtered_posts %}
+          <hr>
+          <article>
+            <ul>
+              <li>
+                Место: {{ post.location }}             
+              </li>
+              <li>
+                Дата: {{ post.date }}
+              </li>
+              <li>
+                Категория: <a href="category/{{ post.category }}">{{ post.category }}</a>
+              </li>
+            </ul>          
+            <!-- Первые 10 слов -->
+            <p>
+              {{ post.text }}
+            </p>
+            <a href="detail.html">Читать полный текст</a>
+          </article>
+        {% endfor %}  
       </div>
     </main>
     <footer class="border-top text-center py-3">
