@@ -49,7 +49,7 @@ posts = [
 
 def index(request):
     template = 'blog/index.html'
-    sorted_posts = sorted(posts, key=lambda d: d['id'], reverse = True)
+    sorted_posts = sorted(posts, key=lambda d: d['id'], reverse=True)
     context = {'posts': sorted_posts}
 
     return render(request, template, context)
