@@ -48,7 +48,7 @@ posts = [
 
 
 def index(request):
-    template = 'blog/index.html'
+    template = 'index.html'
     sorted_posts = sorted(posts, key=lambda d: d['id'], reverse=True)
     context = {'posts': sorted_posts}
 
@@ -56,7 +56,7 @@ def index(request):
 
 
 def post_detail(request, id):
-    template = 'blog/detail.html'
+    template = 'detail.html'
     context = {'post': posts[id]}
 
     return render(request, template, context)
@@ -65,6 +65,6 @@ def post_detail(request, id):
 def category_posts(request, category):
     filtered_posts = [post for post in posts if post['category'] == category]
     context = {'filtered_posts': filtered_posts, 'slug_category': category}
-    template = 'blog/category.html'
+    template = 'category.html'
 
     return render(request, template, context)

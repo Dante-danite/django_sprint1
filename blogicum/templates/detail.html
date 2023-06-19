@@ -27,7 +27,7 @@
               </a>
             </li>
             <li class="nav-item">              
-              <a class="nav-link" href="about.html">
+              <a class="nav-link" href="{% url 'about.html' %}">
                 О проекте
               </a>
             </li>
@@ -51,7 +51,7 @@
               Дата: {{ post.date }}
             </li>
             <li>
-              Категория: <a href={% url 'blog:post_detail' post.id %}</a>
+              Категория: <a href={% url 'blog:category_posts' post.category %}>{{ post.category }}</a>
             </li>
           </ul>         
           <p>
