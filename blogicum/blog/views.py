@@ -55,7 +55,7 @@ def index(request):
 
 def post_detail(request, post_id):
     try:
-        post = posts[int(post_id)]
+        post = posts[post_id]
     except IndexError:
         raise Http404("Post does not exist")
 

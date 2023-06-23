@@ -1,23 +1,9 @@
 {% extends "base.html" %}
-{% block title %}{{ post.location }}. {{ post.date }}{% endblock %}
-              {% block a_class %}
-              <a class="nav-link" href="{% url 'blog:index' %}">
-              {% endblock %}
-        {% block content %}
-        <article>
-          <ul>
-            <li>
-              Место: {{ post.location }}             
-            </li>
-            <li>
-              Дата: {{ post.date }}
-            </li>
-            <li>
-              Категория: <a href={% url 'blog:category_posts' post.category %}>{{ post.category }}</a>
-            </li>
-          </ul>         
-          <p>
-            {{ post.text }}
-          </p>          
-        </article>
-        {% endblock %}                
+
+{% block title %}
+  {{ post.location }}. {{ post.date }}
+{% endblock %}
+
+{% block content %}
+  {% include "includes/post.html" %}
+{% endblock %}                
